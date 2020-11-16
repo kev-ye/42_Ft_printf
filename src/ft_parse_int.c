@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 20:28:18 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/14 20:34:30 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/16 21:18:20 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void    ft_parse_int(int i)
 {
     char *conv;
     
-    conv = ft_itoa(i);
+    conv = ft_itoa_base(i, 10, 0);
     ft_putstr(conv);
     free(conv);
 }
