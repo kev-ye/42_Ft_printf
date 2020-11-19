@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 16:56:43 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/14 20:07:58 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/19 15:18:06 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,9 @@ void	ft_putstr(char *s)
 	if (!s)
 		return ;
 	write(1, s, ft_strlen(s));
+}
+
+int		ft_isdigit(int c)
+{
+	return (c >= 48 && c <= 57);
 }

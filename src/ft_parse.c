@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:27:15 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/16 21:30:18 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/19 15:58:53 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,43 @@ int     ft_type(int type)
     return (0);
 }
 
-void     ft_parse(int type, va_list arg)
+int     ft_flags(int flag)
+{
+    if (flag == '-')
+        return (1);
+    else if (flag == '0')
+        return (1);
+    else if (flag == '.')
+        return (1);
+    else if (flag == '*')
+        return (1);
+    return (0);
+}
+
+int    ft_parse_flags(const char *format, int count, t_flag *flag, va_list arg)
+{
+    while (format[count])
+    {
+        if (!ft_isdigit(format[count]) && !ft_type(format[count]) && !ft_flags(format[count]))
+            break;
+        if (format[count] == '*')
+            *flag = ft_width(arg, *flag);
+        if (ft_type(format[count]))
+        {
+            flag->type = format[count];
+            break;
+        }
+        if (ft_isdigit(format[count]))
+            *flag = ft_digit(format[count], *flag);
+        ++count;
+    }
+    return (count);
+}
+
+void     ft_parse(int type, va_list arg, t_flag flag)
 {
     if (type == 'c')
-        ft_parse_char(va_arg(arg, int));
+        ft_parse_char(va_arg(arg, int), flag);
     else if (type == 's')
         ft_parse_string(va_arg(arg, char *));
     else if (type == 'p')
