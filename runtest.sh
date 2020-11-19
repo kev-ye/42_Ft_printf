@@ -1,1 +1,1 @@
-clang printftest.c && ./a.out | cat -e
+clang -I./inc printftest.c && ./a.out | cat -e

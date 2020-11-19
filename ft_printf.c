@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 16:50:14 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/19 15:59:10 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/19 21:13:01 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ t_flag  ft_init_flag(void)
 {
     t_flag flag;
 
-    flag.dot = 0;
     flag.minus = 0;
     flag.prec = 0;
     flag.star = 0;
@@ -30,9 +29,11 @@ t_flag  ft_init_flag(void)
 int     ft_vprintf(const char *format, va_list arg)
 {
     int i;
+    int count;
     t_flag flag;
     
     i = 0;
+    count = 0;
     flag = ft_init_flag();
     while (format[i])
     {
@@ -40,13 +41,13 @@ int     ft_vprintf(const char *format, va_list arg)
         {
             i = ft_parse_flags(format, ++i, &flag, arg);
             if (ft_type(format[i]))
-                ft_parse(flag.type, arg, flag);
+                count += ft_parse(flag.type, arg, flag);
         }
         else if (format[i] != '%')
-            ft_putchar(format[i]);
+            count += ft_putchar(format[i]);
         i++;
     }
-    return (i);
+    return (count);
 }
 
 int     ft_printf(const char *format, ...)
@@ -67,8 +68,8 @@ int main()
     int count_ft_pf;
     int count_pf;
 
-    ft_printf("test type c : ==> %10c <==\n",'c');
-    printf("real printf : ==> %10c <==\n",'c');
+    count_ft_pf = ft_printf("test type c : ==> [%10c] <==\n",'c');
+    count_pf = printf("real printf : ==> [%10c] <==\n", 'c');
     printf("============================================\n");
     printf("ft_printf : %d || printf : %d\n", count_ft_pf, count_pf);
     printf("============================================\n\n");

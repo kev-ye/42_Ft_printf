@@ -1,7 +1,9 @@
 #include <libc.h>
+#include "ft_printf.h"
 
 int main()
 {
-    printf("%*d", 10, 1);
+    // char *str = NULL;
+    printf("%010c",'c');
     printf("\n");
 }

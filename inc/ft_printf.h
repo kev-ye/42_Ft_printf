@@ -11,7 +11,6 @@ typedef struct s_flag
     int minus;
     int zero;
     int prec;
-    int dot;
     int star;
 }              t_flag;
 
@@ -20,7 +19,7 @@ typedef struct s_flag
 */
 
 t_flag  ft_int_flag(void);
-void    ft_parse(int type, va_list arg, t_flag flag);
+int     ft_parse(int type, va_list arg, t_flag flag);
 int     ft_vprintf(const char *format, va_list arg);
 int     ft_printf(const char *format, ...);
 
@@ -43,17 +42,19 @@ void    ft_parse_percent(void);
 
 int     ft_flags(int flag);
 t_flag  ft_minus(t_flag flag);
-t_flag  ft_width(va_list arg, t_flag flag);
+t_flag  ft_width(t_flag flag, va_list arg);
 t_flag  ft_digit(char format, t_flag flag);
+int     ft_prec(const char *format, int begin_value, t_flag *flag, va_list arg);
 int     ft_parse_width(int width, int zero);
-int    ft_parse_flags(const char *format, int count, t_flag *flag, va_list arg);
+int     ft_parse_flags(const char *format, int count, t_flag *flag, va_list arg);
+
 
 /*
 ** Utils
 */
 
 size_t	ft_strlen(const char *s);
-void    ft_putchar(char c);
+int     ft_putchar(char c);
 void	ft_putstr(char *s);
 int		ft_isdigit(int c);
 
