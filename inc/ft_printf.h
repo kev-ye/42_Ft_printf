@@ -29,7 +29,7 @@ int     ft_printf(const char *format, ...);
 
 int     ft_type(int type);
 int     ft_parse_char(int c, t_flag flag);
-void    ft_parse_string(char *s);;
+int     ft_parse_string(char *s, t_flag flag);;
 void    ft_parse_pointer(void *p);
 void    ft_parse_int(int i);
 void    ft_parse_uint(unsigned int ui);
@@ -45,7 +45,7 @@ t_flag  ft_minus(t_flag flag);
 t_flag  ft_width(t_flag flag, va_list arg);
 t_flag  ft_digit(char format, t_flag flag);
 int     ft_prec(const char *format, int begin_value, t_flag *flag, va_list arg);
-int     ft_parse_width(int width, int zero);
+int     ft_parse_width(int width, int hold, int zero);
 int     ft_parse_flags(const char *format, int count, t_flag *flag, va_list arg);
 
 
@@ -54,8 +54,10 @@ int     ft_parse_flags(const char *format, int count, t_flag *flag, va_list arg)
 */
 
 size_t	ft_strlen(const char *s);
-int     ft_putchar(char c);
+int     ft_putchar_pf(char c);
 void	ft_putstr(char *s);
+size_t	ft_putstr_pf(char *s);
+int		ft_putstr_prec_pf(char *s, int prec);
 int		ft_isdigit(int c);
 
 /*

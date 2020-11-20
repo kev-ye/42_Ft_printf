@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:27:15 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/19 21:12:11 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/20 15:53:45 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int     ft_parse(int type, va_list arg, t_flag flag)
     if (type == 'c')
         count = ft_parse_char(va_arg(arg, int), flag);
     else if (type == 's')
-        ft_parse_string(va_arg(arg, char *));
+        count = ft_parse_string(va_arg(arg, char *), flag);
     else if (type == 'p')
         ft_parse_pointer(va_arg(arg, void *));
     else if (type == 'd' || type == 'i')

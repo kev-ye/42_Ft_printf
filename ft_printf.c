@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 16:50:14 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/19 21:13:01 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/20 15:56:12 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int     ft_vprintf(const char *format, va_list arg)
                 count += ft_parse(flag.type, arg, flag);
         }
         else if (format[i] != '%')
-            count += ft_putchar(format[i]);
+            count += ft_putchar_pf(format[i]);
         i++;
     }
     return (count);
@@ -68,15 +68,17 @@ int main()
     int count_ft_pf;
     int count_pf;
 
-    count_ft_pf = ft_printf("test type c : ==> [%10c] <==\n",'c');
-    count_pf = printf("real printf : ==> [%10c] <==\n", 'c');
+    // count_ft_pf = ft_printf("test type c : ==> [%c] <==\n", 'c');
+    // count_pf = printf("real printf : ==> [%c] <==\n", 'c');
+    // printf("============================================\n");
+    // printf("ft_printf : %d || printf : %d\n", count_ft_pf, count_pf);
+    // printf("============================================\n\n");
+
+    count_ft_pf = ft_printf("test type s : ==> [%s] <==\n", "test");
+    count_pf = printf("real printf : ==> [%s] <==\n", "test");
     printf("============================================\n");
     printf("ft_printf : %d || printf : %d\n", count_ft_pf, count_pf);
     printf("============================================\n\n");
-
-    // ft_printf("test type s : ==> %s <==\n", "success");
-    // printf("real printf : ==> %s <==\n", "success");
-    // printf("============================================\n\n");
 
     // ft_printf("test type p : ==> %p <==\n", p);
     // printf("real printf : ==> %p <==\n", p);
@@ -94,8 +96,8 @@ int main()
     // printf("real printf : ==> %u <==\n", 42);
     // printf("============================================\n\n");
 
-    // ft_printf("test type x : ==> %x <==\n", 2147483647);
-    // printf("real printf : ==> %x <==\n", 2147483647);
+    // ft_printf("test type x : ==> %x <==\n", -1);
+    // printf("real printf : ==> %x <==\n", -1);
     // printf("============================================\n\n");
 
     // ft_printf("test type X : ==> %X <==\n", 2147483647);

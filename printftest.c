@@ -3,7 +3,5 @@
 
 int main()
 {
-    // char *str = NULL;
-    printf("%010c",'c');
-    printf("\n");
+    printf("%5s\n", "test");  
 }

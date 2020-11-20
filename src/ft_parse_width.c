@@ -6,23 +6,23 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 15:05:14 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/19 19:44:09 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/20 15:29:02 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int     ft_parse_width(int width, int zero)
+int     ft_parse_width(int width, int hold,int zero)
 {
     int count;
 
     count = 0;
-    while (width - 1 > 0)
+    while (width - hold > 0)
     {
         if (zero)
-            ft_putchar('0');
+            ft_putchar_pf('0');
         else
-            ft_putchar(' ');
+            ft_putchar_pf(' ');
         --width;
         ++count;
     }
