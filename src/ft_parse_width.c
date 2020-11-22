@@ -6,13 +6,13 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 15:05:14 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/20 15:29:02 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/22 20:45:34 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int     ft_parse_width(int width, int hold,int zero)
+int     ft_parse_width(int width, int hold, int zero)
 {
     int count;
 

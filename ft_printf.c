@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 16:50:14 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/20 15:56:12 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/22 20:54:53 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_flag  ft_init_flag(void)
     t_flag flag;
 
     flag.minus = 0;
-    flag.prec = 0;
+    flag.prec = -1;
     flag.star = 0;
     flag.type = 0;
     flag.width = 0;
@@ -74,8 +74,8 @@ int main()
     // printf("ft_printf : %d || printf : %d\n", count_ft_pf, count_pf);
     // printf("============================================\n\n");
 
-    count_ft_pf = ft_printf("test type s : ==> [%s] <==\n", "test");
-    count_pf = printf("real printf : ==> [%s] <==\n", "test");
+    count_ft_pf = ft_printf("test type s : ==> [%10.1*s] <==\n", 10, "test");
+    count_pf = printf("real printf : ==> [%10.1*s] <==\n", 10, "test");
     printf("============================================\n");
     printf("ft_printf : %d || printf : %d\n", count_ft_pf, count_pf);
     printf("============================================\n\n");

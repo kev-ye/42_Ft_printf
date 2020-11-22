@@ -6,23 +6,41 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:40:53 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/20 16:38:47 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/22 20:52:36 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libc.h"
+
+static int     with_prec(char *s, int prec)
+{
+    int count;
+    size_t len;
+
+    count = 0;
+    len = ft_strlen(s);
+    if (prec >= 0)
+        count += ft_putstr_prec_pf(s, prec);
+    else
+        count += ft_putstr_pf(s);
+    return (count);
+}
+
 int    ft_parse_string(char *s, t_flag flag)
 {
     int count;
+    size_t len;
     
     count = 0;
+    len = ft_strlen(s);
     if (!s)
         s = "(null)";
+    if (flag.prec >= 0 && (size_t)flag.prec > len)
+        flag.prec = len;
     if (flag.minus)
-        count += ft_putstr_pf(s);
-    count += ft_parse_width(flag.width, ft_strlen(s), flag.zero);
+        count += with_prec(s, flag.prec);
+    count += ft_parse_width(flag.width, 1, flag.zero);
     if (!flag.minus)
-        count += ft_putstr_pf(s);
+        count += with_prec(s, flag.prec);
     return (count);
 }
