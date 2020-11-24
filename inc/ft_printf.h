@@ -3,6 +3,17 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <libc.h> // Need to remove
+
+#define TYPE_INT 1
+#define TYPE_U_INT 2
+#define TYPE_LONG 3
+#define TYPE_U_LONG 3
+#define TYPE_LLONG 4
+#define TYPE_U_LLONG 5
+
+#define N_LOW 0
+#define N_UP 1
 
 typedef struct s_flag
 {
@@ -31,7 +42,7 @@ int     ft_type(int type);
 int     ft_parse_char(int c, t_flag flag);
 int     ft_parse_string(char *s, t_flag flag);;
 void    ft_parse_pointer(void *p);
-void    ft_parse_int(int i);
+int     ft_parse_int(int i, t_flag flag);
 void    ft_parse_uint(unsigned int ui);
 void    ft_parse_hex(unsigned int ui, int mode);
 void    ft_parse_percent(void);

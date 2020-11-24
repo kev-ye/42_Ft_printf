@@ -3,5 +3,5 @@
 
 int main()
 {
-    printf("%-10.2s\n","test");  
+    printf("%10d", 1);
 }

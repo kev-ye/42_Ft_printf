@@ -6,12 +6,11 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 12:03:47 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/19 21:12:32 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/24 23:50:01 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <libc.h>
 
 t_flag      ft_minus(t_flag flag)
 {
@@ -36,7 +35,10 @@ t_flag      ft_width(t_flag flag, va_list arg)
 t_flag  ft_digit(char format, t_flag flag)
 {
     if (flag.star)
-        return (flag);
+    {
+        flag.star = 0;
+        flag.width = 0;
+    }
     flag.width = flag.width * 10 + format - '0';
     return (flag);
 }

@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:40:53 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/22 20:52:36 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/24 22:39:03 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,10 @@ int    ft_parse_string(char *s, t_flag flag)
         flag.prec = len;
     if (flag.minus)
         count += with_prec(s, flag.prec);
-    count += ft_parse_width(flag.width, 1, flag.zero);
+    if (flag.prec >= 0)
+        count += ft_parse_width(flag.width, flag.prec, flag.zero);
+    else
+        count += ft_parse_width(flag.width, len, flag.zero);
     if (!flag.minus)
         count += with_prec(s, flag.prec);
     return (count);

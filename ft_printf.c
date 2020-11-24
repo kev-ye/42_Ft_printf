@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 16:50:14 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/22 20:54:53 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/24 23:54:40 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,19 +74,21 @@ int main()
     // printf("ft_printf : %d || printf : %d\n", count_ft_pf, count_pf);
     // printf("============================================\n\n");
 
-    count_ft_pf = ft_printf("test type s : ==> [%10.1*s] <==\n", 10, "test");
-    count_pf = printf("real printf : ==> [%10.1*s] <==\n", 10, "test");
-    printf("============================================\n");
-    printf("ft_printf : %d || printf : %d\n", count_ft_pf, count_pf);
-    printf("============================================\n\n");
+    // count_ft_pf = ft_printf("test type s : ==> [%s] <==\n", "test");
+    // count_pf = printf("real printf : ==> [%s] <==\n", "test");
+    // printf("============================================\n");
+    // printf("ft_printf : %d || printf : %d\n", count_ft_pf, count_pf);
+    // printf("============================================\n\n");
 
     // ft_printf("test type p : ==> %p <==\n", p);
     // printf("real printf : ==> %p <==\n", p);
     // printf("============================================\n\n");
 
-    // ft_printf("test type d : ==> %d <==\n", 42);
-    // printf("real printf : ==> %d <==\n", 42);
-    // printf("============================================\n\n");
+    count_ft_pf = ft_printf("test type d : ==> [%-*10d] <==\n", -6, -10);
+    count_pf = printf("real printf : ==> [%-*10d] <==\n", -6, -10);
+    printf("============================================\n");
+    printf("ft_printf : %d || printf : %d\n", count_ft_pf, count_pf);
+    printf("============================================\n\n");
 
     // ft_printf("test type i : ==> %i <==\n", 42);
     // printf("real printf : ==> %i <==\n", 42);
