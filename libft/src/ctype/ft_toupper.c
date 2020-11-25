@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/14 16:50:14 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/25 21:24:25 by kaye             ###   ########.fr       */
+/*   Created: 2020/11/04 16:56:35 by kaye              #+#    #+#             */
+/*   Updated: 2020/11/04 17:41:24 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int     ft_printf(const char *format, ...)
+/*
+** Converts lowercase letters to uppercase letters.
+*/
+
+int		ft_toupper(int c)
 {
-    va_list arg;
-    int i;
-
-    va_start(arg, format);
-    i = ft_vprintf(format, arg);
-    va_end(arg);
-    return (i);
+	return ((c >= 97 && c <= 122) ? c - 32 : c);
 }

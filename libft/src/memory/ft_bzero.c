@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/14 16:50:14 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/25 21:24:25 by kaye             ###   ########.fr       */
+/*   Created: 2020/11/04 16:57:31 by kaye              #+#    #+#             */
+/*   Updated: 2020/11/04 17:42:03 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int     ft_printf(const char *format, ...)
+/*
+** Writes n zeroed bytes to s.
+*/
+
+void	ft_bzero(void *s, size_t n)
 {
-    va_list arg;
-    int i;
-
-    va_start(arg, format);
-    i = ft_vprintf(format, arg);
-    va_end(arg);
-    return (i);
+	while (n)
+		((unsigned char*)s)[--n] = 0;
 }

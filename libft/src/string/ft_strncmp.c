@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/14 16:50:14 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/25 21:24:25 by kaye             ###   ########.fr       */
+/*   Created: 2020/11/04 16:58:47 by kaye              #+#    #+#             */
+/*   Updated: 2020/11/04 17:43:28 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int     ft_printf(const char *format, ...)
+/*
+** Compares not more than n characters.
+*/
+
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-    va_list arg;
-    int i;
-
-    va_start(arg, format);
-    i = ft_vprintf(format, arg);
-    va_end(arg);
-    return (i);
+	while ((*s1 || *s2) && (*s1 == *s2) && --n)
+	{
+		++s1;
+		++s2;
+	}
+	return (n ? (unsigned char)*s1 - (unsigned char)*s2 : 0);
 }

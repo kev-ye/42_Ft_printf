@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_parse_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/14 16:50:14 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/25 21:24:25 by kaye             ###   ########.fr       */
+/*   Created: 2020/11/14 19:25:38 by kaye              #+#    #+#             */
+/*   Updated: 2020/11/25 20:27:15 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int     ft_printf(const char *format, ...)
+int    ft_parse_char(int c, t_flag flag)
 {
-    va_list arg;
-    int i;
+    int count;
 
-    va_start(arg, format);
-    i = ft_vprintf(format, arg);
-    va_end(arg);
-    return (i);
+    count = 0;
+    if (flag.minus)
+        count += ft_putchar_pf(c);
+    count += ft_parse_width(flag.width, 1,flag.zero);
+    if (!flag.minus)
+        count += ft_putchar_pf(c);
+    return (count);
 }
