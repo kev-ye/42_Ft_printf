@@ -52,7 +52,7 @@ int				ft_parse_string(char *s, t_flag flag);
 int				ft_parse_pointer(void *p, t_flag flag);
 int				ft_parse_int(int i, t_flag flag);
 int				ft_parse_uint(unsigned int ui, t_flag flag);
-int				t_parse_hex(unsigned int ui, int low_up, t_flag flag);
+int				ft_parse_hex(unsigned int ui, int low_up, t_flag flag);
 
 /*
 ** Function parse flags
