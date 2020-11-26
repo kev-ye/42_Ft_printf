@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:27:15 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/26 21:49:56 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/26 23:24:06 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int		ft_flags(int flag)
 	return (0);
 }
 
-int		t_parse_flags(const char *format, int count, t_flag *flag, va_list arg)
+int		ft_parse_flags(const char *format, int count, t_flag *flag, va_list arg)
 {
 	while (format[count])
 	{
