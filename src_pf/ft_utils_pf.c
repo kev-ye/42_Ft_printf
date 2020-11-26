@@ -31,10 +31,10 @@ size_t	ft_putstr_pf(char *s)
 
 int		ft_putstr_prec_pf(char *s, int prec)
 {
-		int count;
+	int count;
 
-		count = 0;
-		while (s[count] && count < prec)
-			(void)ft_putchar_pf(s[count++]);
-		return (count);
+	count = 0;
+	while (s[count] && count < prec)
+		(void)ft_putchar_pf(s[count++]);
+	return (count);
 }

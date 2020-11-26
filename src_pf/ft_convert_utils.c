@@ -38,10 +38,10 @@ size_t	ft_ulllen_base_pf(unsigned long long n, int base)
 	return (count);
 }
 
-int      ft_conv_dh_pf(int n, int low_up)
+int		ft_conv_dh_pf(int n, int low_up)
 {
-    if (n < 10)
-        return (n + '0');
-    else
-        return ((low_up) ? (n - 10 + 'A') : (n - 10 + 'a'));
+	if (n < 10)
+		return (n + '0');
+	else
+		return ((low_up) ? (n - 10 + 'A') : (n - 10 + 'a'));
 }

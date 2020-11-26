@@ -92,6 +92,6 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 /*
 ** Utiles function
 */
-size_t	ft_intlen_base(int n, int base);
+size_t			ft_intlen_base(int n, int base);
 
 #endif

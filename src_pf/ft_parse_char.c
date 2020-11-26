@@ -6,21 +6,21 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:25:38 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/25 20:27:15 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/26 21:39:24 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int    ft_parse_char(int c, t_flag flag)
+int		ft_parse_char(int c, t_flag flag)
 {
-    int count;
+	int count;
 
-    count = 0;
-    if (flag.minus)
-        count += ft_putchar_pf(c);
-    count += ft_parse_width(flag.width, 1,flag.zero);
-    if (!flag.minus)
-        count += ft_putchar_pf(c);
-    return (count);
+	count = 0;
+	if (flag.minus)
+		count += ft_putchar_pf(c);
+	count += ft_parse_width(flag.width, 1, flag.zero);
+	if (!flag.minus)
+		count += ft_putchar_pf(c);
+	return (count);
 }

@@ -12,13 +12,13 @@
 
 #include "ft_printf.h"
 
-int     ft_printf(const char *format, ...)
+int		ft_printf(const char *format, ...)
 {
-    va_list arg;
-    int i;
+	va_list	arg;
+	int		i;
 
-    va_start(arg, format);
-    i = ft_vprintf(format, arg);
-    va_end(arg);
-    return (i);
+	va_start(arg, format);
+	i = ft_vprintf(format, arg);
+	va_end(arg);
+	return (i);
 }

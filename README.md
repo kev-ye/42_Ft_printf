@@ -6,7 +6,8 @@
 -> 20/11/20 : flags -0*  for str valid -> wait for .
 -> 22/11/20 : flags . for str -> maybe valid but need to test
 -> 25/11/20 : flags -0*. for int >= 0 valid -> wait for flag . for int < 0
--> 26/11/20 : printf valid but not for memory -> wait for moulinette
--> 26/11/20 : failed with the tester in github
+-> 26/11/20 : printf valid need to test
+-> 26/11/20 : tester in github : fail
+-> 26/11/20 : tester in github : pass + norm
 
 Project no finish
