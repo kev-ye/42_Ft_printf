@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_flag_width.c                              :+:      :+:    :+:   */
+/*   ft_parse_flag_plus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/19 15:05:14 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/26 21:45:11 by kaye             ###   ########.fr       */
+/*   Created: 2020/11/27 19:09:52 by kaye              #+#    #+#             */
+/*   Updated: 2020/11/28 16:24:41 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_parse_width(int width, int hold, int zero)
+t_flag		ft_space(t_flag flag)
 {
-	int count;
+	if (!flag.plus)
+		flag.space = 1;
+	return (flag);
+}
 
-	count = 0;
-	while (width - hold > 0)
-	{
-		if (zero)
-			ft_putchar_pf('0');
-		else
-			ft_putchar_pf(' ');
-		--width;
-		++count;
-	}
-	return (count);
+t_flag		ft_plus(t_flag flag)
+{
+	if (flag.space)
+		flag.space = 0;
+	flag.plus = 1;
+	return (flag);
 }

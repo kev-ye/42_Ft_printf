@@ -9,5 +9,6 @@
 -> 26/11/20 : printf valid need to test
 -> 26/11/20 : tester in github : fail
 -> 26/11/20 : tester in github : pass + norm
+-> 28/11/20 : flags space+plus valid -> with tester : pass + norm 
 
 Project no finish

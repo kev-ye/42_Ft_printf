@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 22:34:03 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/26 22:34:06 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/28 01:30:42 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ typedef struct	s_flag
 	int zero;
 	int prec;
 	int star;
+	int plus;
+	int space;
 }				t_flag;
 
 /*
@@ -66,6 +68,10 @@ int				ft_prec(const char *format, int begin_value, t_flag *flag,
 int				ft_parse_width(int width, int hold, int zero);
 int				ft_parse_flags(const char *format, int count, t_flag *flag,
 																va_list arg);
+void			ft_parse_flags_plus(const char *format, int count,
+																t_flag **flag);
+t_flag			ft_space(t_flag flag);
+t_flag			ft_plus(t_flag flag);
 
 /*
 ** Utils

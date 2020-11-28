@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 21:17:39 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/26 21:58:45 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/28 16:23:01 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ t_flag		ft_init_flag(void)
 	flag.type = 0;
 	flag.width = 0;
 	flag.zero = 0;
+	flag.space = 0;
+	flag.plus = 0;
 	return (flag);
 }
 

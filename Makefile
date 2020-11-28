@@ -6,7 +6,7 @@
 #    By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/25 22:45:37 by kaye              #+#    #+#              #
-#    Updated: 2020/11/26 00:18:20 by kaye             ###   ########.fr        #
+#    Updated: 2020/11/28 01:31:04 by kaye             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,6 @@ SRC			:= ft_printf.c
 SUB_SRC 	:= ft_convert_utils.c \
 			   ft_convert.c \
 			   ft_parse_char.c \
-			   ft_parse_flag_width.c \
 			   ft_parse_flag.c \
 			   ft_parse_hex.c \
 			   ft_parse_int.c \
@@ -42,7 +41,8 @@ SUB_SRC 	:= ft_convert_utils.c \
 			   ft_parse_uint.c \
 			   ft_parse.c \
 			   ft_process.c \
-			   ft_utils_pf.c
+			   ft_utils_pf.c \
+			   ft_parse_flag_plus.c
 SRC			+= $(addprefix $(SRC_DIR)/, $(SUB_SRC))
 SUB_SRC		:= ft_vprintf.c
 SRC			+= $(addprefix $(SRC_DIR)/printf_family/, $(SUB_SRC))

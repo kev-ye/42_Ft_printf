@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:27:15 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/26 23:24:06 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/28 16:23:30 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ int		ft_flags(int flag)
 		return (1);
 	else if (flag == '*')
 		return (1);
+	else if (flag == ' ')
+		return (1);
+	else if (flag == '+')
+		return (1);
 	return (0);
 }
 
@@ -63,6 +67,7 @@ int		ft_parse_flags(const char *format, int count, t_flag *flag, va_list arg)
 			*flag = ft_width(*flag, arg);
 		if (ft_isdigit(format[count]))
 			*flag = ft_digit(format[count], *flag);
+		ft_parse_flags_plus(format, count, &flag);
 		if (ft_type(format[count]))
 		{
 			flag->type = format[count];
@@ -71,6 +76,14 @@ int		ft_parse_flags(const char *format, int count, t_flag *flag, va_list arg)
 		++count;
 	}
 	return (count);
+}
+
+void	ft_parse_flags_plus(const char *format, int count, t_flag **flag)
+{
+	if (format[count] == ' ')
+		**flag = ft_space(**flag);
+	if (format[count] == '+')
+		**flag = ft_plus(**flag);
 }
 
 int		ft_parse(int type, va_list arg, t_flag flag)

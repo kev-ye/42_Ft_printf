@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 12:03:47 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/26 22:20:59 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/28 16:27:06 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 t_flag		ft_minus(t_flag flag)
 {
-	flag.minus = 1;
 	flag.zero = 0;
+	flag.minus = 1;
 	return (flag);
 }
 
@@ -58,4 +58,21 @@ int			ft_prec(const char *format, int begin_value,
 			flag->prec = flag->prec * 10 + format[begin_value++] - '0';
 	}
 	return (begin_value);
+}
+
+int			ft_parse_width(int width, int hold, int zero)
+{
+	int count;
+
+	count = 0;
+	while (width - hold > 0)
+	{
+		if (zero)
+			ft_putchar_pf('0');
+		else
+			ft_putchar_pf(' ');
+		--width;
+		++count;
+	}
+	return (count);
 }
