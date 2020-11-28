@@ -22,6 +22,8 @@ size_t	ft_putstr_pf(char *s)
 {
 	size_t len;
 
+	if (!s)
+		return (0);
 	len = ft_strlen(s);
 	write(1, s, len);
 	return (len);
