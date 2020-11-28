@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 22:34:03 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/28 01:30:42 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/28 18:16:26 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct	s_flag
 	int star;
 	int plus;
 	int space;
+	int hashtag;
 }				t_flag;
 
 /*
@@ -72,6 +73,7 @@ void			ft_parse_flags_plus(const char *format, int count,
 																t_flag **flag);
 t_flag			ft_space(t_flag flag);
 t_flag			ft_plus(t_flag flag);
+t_flag			ft_hashtag(t_flag flag);
 
 /*
 ** Utils

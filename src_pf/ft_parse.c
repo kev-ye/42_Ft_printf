@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:27:15 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/28 16:23:30 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/28 18:16:11 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int		ft_flags(int flag)
 		return (1);
 	else if (flag == '+')
 		return (1);
+	else if (flag == '#')
+		return (1);
 	return (0);
 }
 
@@ -84,6 +86,8 @@ void	ft_parse_flags_plus(const char *format, int count, t_flag **flag)
 		**flag = ft_space(**flag);
 	if (format[count] == '+')
 		**flag = ft_plus(**flag);
+	if (format[count] == '#')
+		**flag = ft_hashtag(**flag);
 }
 
 int		ft_parse(int type, va_list arg, t_flag flag)

@@ -1,34 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_flag_plus.c                               :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/27 19:09:52 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/28 18:14:54 by kaye             ###   ########.fr       */
+/*   Created: 2020/11/28 18:33:55 by kaye              #+#    #+#             */
+/*   Updated: 2020/11/28 18:34:47 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-t_flag		ft_space(t_flag flag)
+void	ft_putstr(char *s)
 {
-	if (!flag.plus)
-		flag.space = 1;
-	return (flag);
-}
-
-t_flag		ft_plus(t_flag flag)
-{
-	if (flag.space)
-		flag.space = 0;
-	flag.plus = 1;
-	return (flag);
-}
-
-t_flag		ft_hashtag(t_flag flag)
-{
-	flag.hashtag = 1;
-	return (flag);
+	write(1, s, ft_strlen(s));
 }
