@@ -6,13 +6,13 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 17:38:09 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/28 19:51:01 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/30 23:10:40 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	with_prec(char *conv, unsigned int ui, int low_up, t_flag flag)
+static int	with_prec(char *conv, t_ull ui, int low_up, t_flag flag)
 {
 	int		count;
 	size_t	len;
@@ -22,23 +22,23 @@ static int	with_prec(char *conv, unsigned int ui, int low_up, t_flag flag)
 	if (ui > 0 && flag.hashtag && !flag.zero && flag.prec < 0)
 	{
 		if (ui > 0 && flag.hashtag && low_up == N_LOW)
-			count += 1 + ft_putstr_pf("0x") + 1;
+			count += ft_putstr_pf("0x");
 		else if (low_up == N_UP)
-			count += 1 + ft_putstr_pf("0X") + 1;
+			count += ft_putstr_pf("0X");
 	}
 	if (flag.prec >= 0)
 	{
 		if (ui > 0 && flag.hashtag && low_up == N_LOW)
-			count += 1 + ft_putstr_pf("0x");
+			count += ft_putstr_pf("0x");
 		else if (ui > 0 && flag.hashtag && low_up == N_UP)
-			count += 1 + ft_putstr_pf("0X");
+			count += ft_putstr_pf("0X");
 		count += ft_parse_width(flag.prec, len, 1);
 	}
 	count += ft_putstr_pf(conv);
 	return (count);
 }
 
-static int	parse_hex(char *conv, unsigned int ui, int low_up, t_flag flag)
+static int	parse_hex(char *conv, t_ull ui, int low_up, t_flag flag)
 {
 	int		count;
 	size_t	len;
@@ -60,20 +60,19 @@ static int	parse_hex(char *conv, unsigned int ui, int low_up, t_flag flag)
 	return (count);
 }
 
-static int	parse_hex_plus(unsigned int ui, int count, int low_up, t_flag flag)
+static int	parse_hex_plus(t_ull ui, int count, int low_up, t_flag flag)
 {
 	if (ui > 0 && flag.zero && flag.hashtag && flag.prec < 0)
 	{
 		if (low_up == N_LOW)
-			ft_putstr("0x");
+			count += ft_putstr_pf("0x");
 		else if (low_up == N_UP)
-			ft_putstr("0X");
-		count += 2;
+			count += ft_putstr_pf("0X");
 	}
 	return (count);
 }
 
-int			ft_parse_hex(unsigned int ui, int low_up, t_flag flag)
+int			ft_parse_hex(t_ull ui, int low_up, t_flag flag)
 {
 	char	*conv;
 	int		count;
@@ -85,7 +84,7 @@ int			ft_parse_hex(unsigned int ui, int low_up, t_flag flag)
 		return (count);
 	}
 	count += parse_hex_plus(ui, count, low_up, flag);
-	conv = ft_uitoa_base_pf(ui, 16, low_up);
+	conv = ft_ulltoa_base_pf(ui, 16, low_up);
 	count += parse_hex(conv, ui, low_up, flag);
 	free(conv);
 	return (count);

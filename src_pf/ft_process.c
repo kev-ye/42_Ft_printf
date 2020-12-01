@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 21:17:39 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/28 18:15:13 by kaye             ###   ########.fr       */
+/*   Updated: 2020/12/01 00:49:36 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ t_flag		ft_init_flag(void)
 	flag.space = 0;
 	flag.plus = 0;
 	flag.hashtag = 0;
+	flag.h = 0;
+	flag.hh = 0;
+	flag.l = 0;
+	flag.ll = 0;
 	return (flag);
 }
 
@@ -42,8 +46,8 @@ int			ft_process(const char *format, va_list arg)
 		if (format[i] == '%' && format[i + 1])
 		{
 			i = ft_parse_flags(format, ++i, &flag, arg);
-			if (ft_type(format[i]))
-				count += ft_parse(flag.type, arg, flag);
+			if (format[i] && ft_type(format[i]))
+				count += ft_parse(count, flag.type, arg, flag);
 		}
 		else if (format[i] != '%')
 			count += ft_putchar_pf(format[i]);

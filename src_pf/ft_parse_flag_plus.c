@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 19:09:52 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/28 18:14:54 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/30 19:31:58 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,18 @@ t_flag		ft_plus(t_flag flag)
 t_flag		ft_hashtag(t_flag flag)
 {
 	flag.hashtag = 1;
+	return (flag);
+}
+
+t_flag		ft_type_def(t_flag flag, int type)
+{
+	if (type == TYPE_H)
+		flag.h = 1;
+	if (type == TYPE_HH)
+		flag.hh = 1;
+	if (type == TYPE_L)
+		flag.l = 1;
+	if (type == TYPE_LL)
+		flag.ll = 1;
 	return (flag);
 }

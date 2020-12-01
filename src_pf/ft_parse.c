@@ -6,59 +6,18 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:27:15 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/28 18:16:11 by kaye             ###   ########.fr       */
+/*   Updated: 2020/12/01 01:54:47 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_type(int type)
-{
-	if (type == 'c')
-		return (1);
-	else if (type == 's')
-		return (1);
-	else if (type == 'p')
-		return (1);
-	else if (type == 'd' || type == 'i')
-		return (1);
-	else if (type == 'u')
-		return (1);
-	else if (type == 'x')
-		return (1);
-	else if (type == 'X')
-		return (1);
-	else if (type == '%')
-		return (1);
-	return (0);
-}
-
-int		ft_flags(int flag)
-{
-	if (flag == '-')
-		return (1);
-	else if (flag == '0')
-		return (1);
-	else if (flag == '.')
-		return (1);
-	else if (flag == '*')
-		return (1);
-	else if (flag == ' ')
-		return (1);
-	else if (flag == '+')
-		return (1);
-	else if (flag == '#')
-		return (1);
-	return (0);
-}
-
 int		ft_parse_flags(const char *format, int count, t_flag *flag, va_list arg)
 {
 	while (format[count])
 	{
-		if (!ft_isdigit(format[count]) && !ft_type(format[count]) &&
-			!ft_flags(format[count]))
-			break ;
+		if (!ft_flags_check(format, count))
+			break;
 		if (format[count] == '0' && flag->minus == 0 && flag->width == 0)
 			flag->zero = 1;
 		if (format[count] == '.')
@@ -88,28 +47,64 @@ void	ft_parse_flags_plus(const char *format, int count, t_flag **flag)
 		**flag = ft_plus(**flag);
 	if (format[count] == '#')
 		**flag = ft_hashtag(**flag);
+	if (!ft_strncmp("h", format + count, 1))
+		**flag = ft_type_def(**flag, TYPE_H);
+	if (!ft_strncmp("hh", format + count, 2))
+		**flag = ft_type_def(**flag, TYPE_HH);
+	if (!ft_strncmp("l", format + count, 1))
+		**flag = ft_type_def(**flag, TYPE_L);
+	if (!ft_strncmp("ll", format + count, 2))
+		**flag = ft_type_def(**flag, TYPE_LL);
 }
 
-int		ft_parse(int type, va_list arg, t_flag flag)
+int		ft_parse_c_with_spec(va_list arg, t_flag flag)
+{
+	int count;
+
+	count = 0;
+	if (flag.l)
+		count = ft_parse_wchar(va_arg(arg, wchar_t), flag);
+	else
+		count = ft_parse_char(va_arg(arg, int), flag);
+	return (count);	
+}
+
+int		ft_parse_s_with_spec(va_list arg, t_flag flag)
+{
+	int count;
+
+	count = 0;
+	if (flag.l)
+		count = ft_parse_wstring(va_arg(arg, wchar_t *), flag);
+	else
+		count = ft_parse_string(va_arg(arg, char *), flag);
+	return (count);
+}
+
+int		ft_parse(int cnt, int type, va_list arg, t_flag flag)
 {
 	int count;
 
 	count = 0;
 	if (type == 'c')
-		count = ft_parse_char(va_arg(arg, int), flag);
+		count = ft_parse_c_with_spec(arg, flag);
 	else if (type == 's')
-		count = ft_parse_string(va_arg(arg, char *), flag);
+		count = ft_parse_s_with_spec(arg, flag);
 	else if (type == 'p')
 		count = ft_parse_pointer(va_arg(arg, void *), flag);
 	else if (type == 'd' || type == 'i')
-		count = ft_parse_int(va_arg(arg, int), flag);
+		count = ft_parse_int(type_d(arg, flag), flag);
 	else if (type == 'u')
-		count = ft_parse_uint(va_arg(arg, unsigned int), flag);
+		count = ft_parse_uint(type_u(arg, flag), flag);
 	else if (type == 'x')
-		count = ft_parse_hex(va_arg(arg, unsigned int), N_LOW, flag);
+		count = ft_parse_hex(type_u(arg, flag), N_LOW, flag);
 	else if (type == 'X')
-		count = ft_parse_hex(va_arg(arg, unsigned int), N_UP, flag);
+		count = ft_parse_hex(type_u(arg, flag), N_UP, flag);
 	else if (type == '%')
 		count = ft_parse_char('%', flag);
+	else if (type == 'n')
+		count = ft_parse_int_p(va_arg(arg, int *), cnt);
+	else if (type == 'o')
+		count = ft_parse_octal(type_u(arg, flag), flag);
 	return (count);
 }

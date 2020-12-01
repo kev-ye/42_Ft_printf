@@ -6,13 +6,13 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 20:28:18 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/28 19:39:51 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/30 19:44:19 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	with_prec(char *conv, int i, t_flag flag)
+static int	with_prec(char *conv, t_ll i, t_flag flag)
 {
 	int		count;
 	size_t	len;
@@ -35,7 +35,7 @@ static int	with_prec(char *conv, int i, t_flag flag)
 	return (count);
 }
 
-static int	parse_int(char *conv, int i, t_flag flag)
+static int	parse_int(char *conv, t_ll i, t_flag flag)
 {
 	int		count;
 	size_t	len;
@@ -57,7 +57,7 @@ static int	parse_int(char *conv, int i, t_flag flag)
 	return (count);
 }
 
-static int	parse_int_plus(int i, int count, t_flag flag)
+static int	parse_int_plus(t_ll i, int count, t_flag flag)
 {
 	if (i == 0 && flag.prec == 0)
 	{
@@ -84,11 +84,11 @@ static int	parse_int_plus(int i, int count, t_flag flag)
 	return (count);
 }
 
-int			ft_parse_int(int i, t_flag flag)
+int			ft_parse_int(t_ll i, t_flag flag)
 {
 	char	*conv;
 	int		count;
-	int		tmp_i;
+	t_ll	tmp_i;
 
 	count = 0;
 	tmp_i = i;
@@ -105,7 +105,7 @@ int			ft_parse_int(int i, t_flag flag)
 		--flag.width;
 	}
 	count = parse_int_plus(tmp_i, count, flag);
-	conv = ft_itoa_base(i, 10);
+	conv = ft_lltoa_base_pf(i, 10);
 	count += parse_int(conv, tmp_i, flag);
 	free(conv);
 	return (count);

@@ -11,5 +11,7 @@
 -> 26/11/20 : tester in github : pass + norm
 -> 28/11/20 : flags space+plus valid -> with tester : pass + norm
 -> 28/11/20 : flags hashtag+space+plus valid -> with tester : passe + norm
+-> 30/11/20 : flags h+hh+l+ll -> valid -> with tester : passe with nocrash
+-> 30/11/20 : type %n -> valid by tester
 
 Project no finish
