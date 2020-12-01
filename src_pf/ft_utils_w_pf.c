@@ -6,41 +6,56 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 21:20:30 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/30 21:51:17 by kaye             ###   ########.fr       */
+/*   Updated: 2020/12/01 23:18:18 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t ft_strwlen(wchar_t *s)
+static int		ft_wchar_len(wint_t c)
 {
-    wchar_t *tmp_s;
+	int count;
 
-    tmp_s = s;
-    while (*tmp_s)
-        ++tmp_s;
-    return (tmp_s - s);
+	count = 0;
+	if (c < 0x80)
+		count = 1;
+	else if (c < 0x800)
+		count = 2;
+	else if (c < 0x10000)
+		count = 3;
+	else if (c < 0x200000)
+		count = 4;
+	return (count);
 }
 
-int		ft_putwchar_pf(wchar_t c)
+int				ft_strwlen(wchar_t *s)
 {
-	write(1, &c, 1);
-	return (1);
+	int count;
+
+	count = 0;
+	while (*s)
+	{
+		count += ft_wchar_len(*(wint_t *)s);
+		++s;
+	}
+	return (count);
 }
 
-size_t	ft_putwstr_pf(wchar_t *s)
+int				ft_putwstr_pf(wchar_t *s)
 {
-	size_t len;
+	int count;
+	int i;
 
+	count = 0;
+	i = 0;
 	if (!s)
 		return (0);
-    len = 0;
-    while (s[len])
-        ft_putwchar_pf(s[len++]);
-	return (len);
+	while (s[i])
+		count += ft_putwchar_pf(s[i++]);
+	return (count);
 }
 
-int		ft_putwstr_prec_pf(wchar_t *s, int prec)
+int				ft_putwstr_prec_pf(wchar_t *s, int prec)
 {
 	int count;
 

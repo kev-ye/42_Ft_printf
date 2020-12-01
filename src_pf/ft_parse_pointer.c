@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:56:18 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/25 21:02:11 by kaye             ###   ########.fr       */
+/*   Updated: 2020/12/01 23:37:24 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int	parse_pointer(char *conv, t_flag flag)
 	if (flag.minus)
 		count += with_prec(conv, flag.prec);
 	if (flag.prec >= 0)
-		count += ft_parse_width(flag.width, flag.prec + 2, flag.zero);
+		count += ft_parse_width(flag.width, flag.prec + 2, 0);
 	else
 	{
 		count += ft_parse_width(flag.width, len + 2, flag.zero);

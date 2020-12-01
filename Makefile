@@ -6,7 +6,7 @@
 #    By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/25 22:45:37 by kaye              #+#    #+#              #
-#    Updated: 2020/11/30 23:10:07 by kaye             ###   ########.fr        #
+#    Updated: 2020/12/01 23:41:34 by kaye             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,6 @@ DIRS		:= $(OBJ_DIR) $(addprefix $(OBJ_DIR)/, $(SRC_DIR)) \
 # FILES
 LIBFT 		:= $(LIBFT_DIR)/libft.a
 NAME 		:= libftprintf.a
-SRC			:= ft_printf.c
 SUB_SRC 	:= ft_convert_utils.c \
 			   ft_convert.c \
 			   ft_parse_char.c \
@@ -49,9 +48,11 @@ SUB_SRC 	:= ft_convert_utils.c \
 			   ft_parse.c \
 			   ft_process.c \
 			   ft_utils_pf.c \
-			   ft_utils_w_pf.c
-SRC			+= $(addprefix $(SRC_DIR)/, $(SUB_SRC))
-SUB_SRC		:= ft_vprintf.c
+			   ft_utils_w_pf.c \
+			   ft_putwchar_pf.c
+SRC			:= $(addprefix $(SRC_DIR)/, $(SUB_SRC))
+SUB_SRC		:= ft_vprintf.c \
+			   ft_printf.c
 SRC			+= $(addprefix $(SRC_DIR)/printf_family/, $(SUB_SRC))
 OBJ			:= $(SRC:%.c=$(OBJ_DIR)/%.o)
 

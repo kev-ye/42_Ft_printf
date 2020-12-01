@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:27:15 by kaye              #+#    #+#             */
-/*   Updated: 2020/12/01 01:54:47 by kaye             ###   ########.fr       */
+/*   Updated: 2020/12/01 18:25:17 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		ft_parse_flags(const char *format, int count, t_flag *flag, va_list arg)
 	while (format[count])
 	{
 		if (!ft_flags_check(format, count))
-			break;
+			break ;
 		if (format[count] == '0' && flag->minus == 0 && flag->width == 0)
 			flag->zero = 1;
 		if (format[count] == '.')
@@ -63,10 +63,10 @@ int		ft_parse_c_with_spec(va_list arg, t_flag flag)
 
 	count = 0;
 	if (flag.l)
-		count = ft_parse_wchar(va_arg(arg, wchar_t), flag);
+		count = ft_parse_wchar(va_arg(arg, wint_t), flag);
 	else
 		count = ft_parse_char(va_arg(arg, int), flag);
-	return (count);	
+	return (count);
 }
 
 int		ft_parse_s_with_spec(va_list arg, t_flag flag)

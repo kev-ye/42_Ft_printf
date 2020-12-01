@@ -6,13 +6,13 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 21:16:03 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/30 21:16:34 by kaye             ###   ########.fr       */
+/*   Updated: 2020/12/01 18:46:22 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_parse_wchar(wchar_t c, t_flag flag)
+int		ft_parse_wchar(wint_t c, t_flag flag)
 {
 	int count;
 

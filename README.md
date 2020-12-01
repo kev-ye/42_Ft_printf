@@ -13,5 +13,6 @@
 -> 28/11/20 : flags hashtag+space+plus valid -> with tester : passe + norm
 -> 30/11/20 : flags h+hh+l+ll -> valid -> with tester : passe with nocrash
 -> 30/11/20 : type %n -> valid by tester
+-> 02/12/20 : tester : pass + norm but no with the flag efg
 
-Project no finish
+end

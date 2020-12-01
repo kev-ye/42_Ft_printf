@@ -56,12 +56,12 @@ int		ft_flags(int flag)
 	return (0);
 }
 
-int ft_flags_check(const char *format, int count)
+int		ft_flags_check(const char *format, int count)
 {
 	if (!ft_isdigit(format[count]) && !ft_type(format[count]) &&
 		!ft_flags(format[count]) && !ft_spec_flag((char *)(format + count)))
 		return (0);
-	if ((ft_isdigit(format[count]) || ft_flags(format[count]) || 
+	if ((ft_isdigit(format[count]) || ft_flags(format[count]) ||
 		ft_spec_flag((char *)(format + count))) && format[count + 1] == '\0')
 		return (0);
 	return (1);
