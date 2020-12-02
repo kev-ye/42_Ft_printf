@@ -6,7 +6,7 @@
 #    By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/25 22:45:37 by kaye              #+#    #+#              #
-#    Updated: 2020/12/01 23:41:34 by kaye             ###   ########.fr        #
+#    Updated: 2020/12/02 15:06:19 by kaye             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ DIRS		:= $(OBJ_DIR) $(addprefix $(OBJ_DIR)/, $(SRC_DIR)) \
 			   $(addprefix $(OBJ_DIR)/$(SRC_DIR)/, $(SUB_DIR))
 
 # FILES
+
 LIBFT 		:= $(LIBFT_DIR)/libft.a
 NAME 		:= libftprintf.a
 SUB_SRC 	:= ft_convert_utils.c \
@@ -80,6 +81,8 @@ $(NAME): $(OBJ)
 	@echo "$(GREEN_COLOR)Update $(YELLOW_COLOR)of $(RED_COLOR)$@ $(BLUE_COLOR)done$(DEFAULT_COLOR)"
 
 all: $(NAME)
+
+bonus: all
 
 clean:
 	@echo "$(CYAN_COLOR)Do $(DEFAULT_COLOR)-> $(CYAN_COLOR)clean $(DEFAULT_COLOR)of libft"
