@@ -1,4 +1,6 @@
-# Printf
+# ft_printf
+
+42 Projet : ft_printf
 
 * Started : 14/11/20
     * 16/11/20 : cspdiuxX% valid
