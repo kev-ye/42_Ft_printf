@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 16:57:40 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/04 17:42:26 by kaye             ###   ########.fr       */
+/*   Updated: 2021/03/09 19:42:19 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	const unsigned char *tmp;
+	const unsigned char	*tmp;
 
 	tmp = s;
 	while (n--)

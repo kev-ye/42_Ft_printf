@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 16:58:21 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/04 17:43:03 by kaye             ###   ########.fr       */
+/*   Updated: 2021/03/09 19:58:16 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ char	*ft_strdup(const char *s1)
 	size_t	len;
 
 	len = ft_strlen(s1) + 1;
-	if (!(str = (char *)malloc(sizeof(char) * len)))
+	str = (char *)malloc(sizeof(char) * len);
+	if (!str)
 		return (NULL);
 	return ((char *)ft_memcpy(str, s1, len));
 }

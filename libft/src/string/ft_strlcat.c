@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 16:58:33 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/04 17:43:14 by kaye             ###   ########.fr       */
+/*   Updated: 2021/03/09 19:57:57 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t len_d;
-	size_t len_s;
+	size_t	len_d;
+	size_t	len_s;
 
 	len_d = 0;
 	while (dst[len_d] && len_d < dstsize)

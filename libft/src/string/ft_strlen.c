@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 16:58:41 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/04 17:43:20 by kaye             ###   ########.fr       */
+/*   Updated: 2021/03/09 19:47:45 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 size_t	ft_strlen(const char *s)
 {
-	const char *str;
+	const char	*str;
 
 	str = s;
 	while (*str)

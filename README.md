@@ -6,4 +6,4 @@ This project is a remake of printf.
 
 ## Info
 
-	🆕 Check libft for version norme V3.
+	✅125

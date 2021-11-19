@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 16:58:58 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/04 17:43:40 by kaye             ###   ########.fr       */
+/*   Updated: 2021/03/09 19:57:49 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t len;
+	size_t	len;
 
 	if (!s1 || !set)
 		return (NULL);

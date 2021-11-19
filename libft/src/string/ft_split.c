@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 16:58:10 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/04 17:42:55 by kaye             ###   ########.fr       */
+/*   Updated: 2021/03/09 19:52:56 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 static int	count_w(char const *s, char c)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	while (*s)
@@ -36,7 +36,7 @@ static int	count_w(char const *s, char c)
 	return (count);
 }
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**str;
 	int		count;
@@ -47,7 +47,8 @@ char		**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	count = count_w(s, c);
-	if (!(str = (char **)malloc(sizeof(char *) * (count + 1))))
+	str = (char **)malloc(sizeof(char *) * (count + 1));
+	if (!str)
 		return (NULL);
 	str[count] = NULL;
 	i = 0;

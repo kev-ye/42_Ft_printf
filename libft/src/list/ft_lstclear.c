@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 16:57:06 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/04 17:41:45 by kaye             ###   ########.fr       */
+/*   Updated: 2021/03/09 19:39:30 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = NULL;
 	while (*lst)

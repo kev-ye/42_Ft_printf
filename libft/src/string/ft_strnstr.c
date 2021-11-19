@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 16:58:50 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/04 17:43:31 by kaye             ###   ########.fr       */
+/*   Updated: 2021/03/09 19:47:25 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t pos;
-	size_t i;
+	size_t	pos;
+	size_t	i;
 
 	if (!*needle)
 		return ((char *)haystack);

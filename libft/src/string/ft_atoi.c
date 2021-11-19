@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 16:57:59 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/04 17:42:43 by kaye             ###   ########.fr       */
+/*   Updated: 2021/03/09 19:58:57 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 ** Converts the string pointed to by str to int representation.
 */
 
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-	int signe;
-	int res;
+	int	signe;
+	int	res;
 
 	signe = 1;
 	res = 0;

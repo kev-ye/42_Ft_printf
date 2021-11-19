@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 16:59:02 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/04 17:43:45 by kaye             ###   ########.fr       */
+/*   Updated: 2021/03/09 19:53:30 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		str = ft_strdup("");
 		return (str);
 	}
-	if (!(str = (char *)malloc(sizeof(char) * (len + 1))))
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
 		return (NULL);
 	i = 0;
 	while (s[start + i] && len--)

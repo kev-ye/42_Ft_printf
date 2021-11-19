@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 16:56:53 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/25 20:35:17 by kaye             ###   ########.fr       */
+/*   Updated: 2021/03/09 17:11:16 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ void	ft_putnbr_fd(int n, int fd)
 	unsigned int	nbr;
 	size_t			i;
 
-	nbr = (n < 0) ? -n : n;
+	if (n < 0)
+		nbr = -n;
+	else
+		nbr = n;
 	i = BUFFER_SIZE_PN;
 	while (nbr || i == BUFFER_SIZE_PN)
 	{

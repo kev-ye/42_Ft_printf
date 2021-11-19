@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 16:56:32 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/04 17:41:22 by kaye             ###   ########.fr       */
+/*   Updated: 2021/03/09 17:10:12 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 ** Converts uppercase letters to lowercase letters.
 */
 
-int		ft_tolower(int c)
+int	ft_tolower(int c)
 {
-	return ((c >= 65 && c <= 90) ? c + 32 : c);
+	if (c >= 65 && c <= 90)
+		return (c + 32);
+	return (c);
 }

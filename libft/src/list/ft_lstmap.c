@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 16:57:19 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/04 16:57:20 by kaye             ###   ########.fr       */
+/*   Updated: 2021/03/09 19:39:55 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,18 @@
 ** The del function is here to delete the content of an element if needed.
 */
 
-t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list *new_lst;
-	t_list *new;
+	t_list	*new_lst;
+	t_list	*new;
 
 	if (!lst || !(f))
 		return (NULL);
 	new_lst = NULL;
 	while (lst)
 	{
-		if (!(new = ft_lstnew((f)(lst->content))))
+		new = ft_lstnew((f)(lst->content));
+		if (!new)
 		{
 			ft_lstclear(&new_lst, del);
 			return (NULL);

@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 16:58:37 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/04 17:43:18 by kaye             ###   ########.fr       */
+/*   Updated: 2021/03/09 19:47:32 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t len;
+	size_t	len;
 
 	if (!src)
 		return (0);

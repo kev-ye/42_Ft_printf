@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 16:57:35 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/04 18:01:25 by kaye             ###   ########.fr       */
+/*   Updated: 2021/03/09 19:43:43 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void *ptr;
+	void	*ptr;
 
-	if ((ptr = (void *)malloc(count * size)))
+	ptr = (void *)malloc(count * size);
+	if (ptr)
 		ft_bzero(ptr, count * size);
 	return (ptr);
 }

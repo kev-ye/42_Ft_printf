@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 16:58:29 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/04 17:43:07 by kaye             ###   ########.fr       */
+/*   Updated: 2021/03/09 19:50:26 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!s1 || !s2)
 		return (NULL);
 	len = ft_strlen(s1) + ft_strlen(s2);
-	if (!(str = (char *)malloc(sizeof(char) * (len + 1))))
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
 		return (NULL);
 	ft_memmove(str, s1, ft_strlen(s1));
 	ft_memmove(str + ft_strlen(s1), s2, ft_strlen(s2));
